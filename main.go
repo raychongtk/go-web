@@ -1,17 +1,18 @@
 package main
 
 import (
-	"github.com/raychongtk/go-web/repository"
-	"github.com/raychongtk/go-web/route"
-	"github.com/raychongtk/go-web/service"
-	"net/http"
+	"context"
+	"log"
 )
 
 func main() {
-	mockRepository := repository.NewRepository()
-	userService, err := service.ProvideService(mockRepository)
+	ctx := context.TODO()
+	routes, err := injectRoutes(ctx)
 	if err != nil {
-		return
+		log.Fatalln("inject routes failed")
 	}
-	http.ListenAndServe(":8080", route.ProvideRoutes(userService))
+
+	if err := routes.Run(":8080"); err != nil {
+		log.Fatalln("start server failed")
+	}
 }

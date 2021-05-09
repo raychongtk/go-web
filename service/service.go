@@ -1,6 +1,13 @@
 package service
 
-import "github.com/raychongtk/go-web/repository"
+import (
+	"github.com/google/wire"
+	"github.com/raychongtk/go-web/repository"
+)
+
+var (
+	WireSet = wire.NewSet(ProvideService)
+)
 
 type Service struct {
 	userRepo repository.UserRepository

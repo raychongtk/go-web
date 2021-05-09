@@ -21,6 +21,9 @@ github.com/golang/protobuf/proto
 # github.com/google/uuid v1.2.0
 ## explicit
 github.com/google/uuid
+# github.com/google/wire v0.5.0
+## explicit
+github.com/google/wire
 # github.com/json-iterator/go v1.1.11
 ## explicit
 github.com/json-iterator/go

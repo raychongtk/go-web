@@ -3,6 +3,11 @@ package repository
 import (
 	"errors"
 	"github.com/google/uuid"
+	"github.com/google/wire"
+)
+
+var (
+	WireSet = wire.NewSet(NewRepository)
 )
 
 type UserRepository interface {
