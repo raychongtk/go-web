@@ -13,8 +13,8 @@ func (h *Service) Login(ctx *gin.Context) {
 		return
 	}
 
-	authenticated := h.userRepo.Authenticate(req.Username, req.Password)
-	if !authenticated {
+	authenticated, err := h.userRepo.Authenticate(req.Username, req.Password)
+	if err != nil || !authenticated {
 		ctx.JSON(http.StatusUnauthorized, &loginResponse{Result: false, ErrorCode: "LOGIN_FAILED"})
 		return
 	}
