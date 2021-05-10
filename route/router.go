@@ -13,7 +13,8 @@ var (
 func ProvideRoutes(service *service.Service) *gin.Engine {
 	r := gin.New()
 
-	r.PUT("/login", service.Login)
+	r.PUT("/user/login", service.Login)
+	r.POST("/user", service.Register)
 
 	return r
 }

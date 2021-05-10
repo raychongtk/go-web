@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func (h *Service) Login(ctx *gin.Context) {
+func (s *Service) Login(ctx *gin.Context) {
 	var req loginRequest
 	err := ctx.ShouldBindJSON(&req)
 	if err != nil {
@@ -13,7 +13,7 @@ func (h *Service) Login(ctx *gin.Context) {
 		return
 	}
 
-	authenticated, err := h.userRepo.Authenticate(req.Username, req.Password)
+	authenticated, err := s.userRepo.Authenticate(req.Username, req.Password)
 	if err != nil || !authenticated {
 		ctx.JSON(http.StatusUnauthorized, &loginResponse{Result: false, ErrorCode: "LOGIN_FAILED"})
 		return

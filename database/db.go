@@ -1,7 +1,9 @@
 package database
 
 import (
+	"fmt"
 	"github.com/google/wire"
+	"github.com/raychongtk/go-web/util"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
@@ -16,7 +18,9 @@ func ProvideDBConnection() gorm.DB {
 }
 
 func gormConnection() *gorm.DB {
-	dsn := "host=localhost user=postgres password=password dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
+	var config *Config
+	util.Load("dev", ".", &config)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai", config.DBHost, config.DBUsername, config.DBPassword)
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
@@ -24,4 +28,10 @@ func gormConnection() *gorm.DB {
 	}
 
 	return db
+}
+
+type Config struct {
+	DBHost     string `mapstructure:"DB_HOST"`
+	DBUsername string `mapstructure:"DB_USERNAME"`
+	DBPassword string `mapstructure:"DB_PASSWORD"`
 }
