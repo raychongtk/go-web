@@ -8,6 +8,7 @@ package main
 import (
 	"context"
 	"github.com/gin-gonic/gin"
+	"github.com/raychongtk/go-web/database"
 	"github.com/raychongtk/go-web/repository"
 	"github.com/raychongtk/go-web/route"
 	"github.com/raychongtk/go-web/service"
@@ -16,7 +17,8 @@ import (
 // Injectors from inject_routes.go:
 
 func injectRoutes(ctx context.Context) (*gin.Engine, error) {
-	userRepository := repository.NewRepository()
+	db := database.ProvideDBConnection()
+	userRepository := repository.NewRepository(db)
 	serviceService, err := service.ProvideService(userRepository)
 	if err != nil {
 		return nil, err
