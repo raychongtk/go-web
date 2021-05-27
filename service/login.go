@@ -2,6 +2,7 @@ package service
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/raychongtk/go-web/util"
 	"net/http"
 )
 
@@ -18,7 +19,7 @@ func (s *Service) Login(ctx *gin.Context) {
 		ctx.JSON(http.StatusUnauthorized, &loginResponse{Result: false, ErrorCode: "LOGIN_FAILED"})
 		return
 	}
-
+	util.CreateSession(ctx)
 	ctx.JSON(http.StatusOK, &loginResponse{Result: authenticated})
 }
 

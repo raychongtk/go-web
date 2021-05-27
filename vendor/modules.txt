@@ -1,5 +1,11 @@
+# github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff
+github.com/boj/redistore
 # github.com/fsnotify/fsnotify v1.4.7
 github.com/fsnotify/fsnotify
+# github.com/gin-contrib/sessions v0.0.3
+## explicit
+github.com/gin-contrib/sessions
+github.com/gin-contrib/sessions/redis
 # github.com/gin-contrib/sse v0.1.0
 github.com/gin-contrib/sse
 # github.com/gin-gonic/gin v1.7.1
@@ -20,12 +26,21 @@ github.com/go-playground/validator/v10
 # github.com/golang/protobuf v1.5.2
 ## explicit
 github.com/golang/protobuf/proto
+# github.com/gomodule/redigo v2.0.0+incompatible
+github.com/gomodule/redigo/internal
+github.com/gomodule/redigo/redis
 # github.com/google/uuid v1.2.0
 ## explicit
 github.com/google/uuid
 # github.com/google/wire v0.5.0
 ## explicit
 github.com/google/wire
+# github.com/gorilla/context v1.1.1
+github.com/gorilla/context
+# github.com/gorilla/securecookie v1.1.1
+github.com/gorilla/securecookie
+# github.com/gorilla/sessions v1.2.0
+github.com/gorilla/sessions
 # github.com/hashicorp/hcl v1.0.0
 github.com/hashicorp/hcl
 github.com/hashicorp/hcl/hcl/ast

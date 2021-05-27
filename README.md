@@ -6,9 +6,10 @@ a demo for building web application in Go
 
 1. Dependency Injection - Wire
 2. HTTP Web Framework - Gin
-3. Database ORM - Gorm
-4. Database - Postgres
-5. Load Configuration - Viper
+3. Session Management - Gin-Session, Redis
+4. Database ORM - Gorm
+5. Database - Postgres
+6. Load Configuration - Viper
 
 # Spin up a Postgres instance with Docker
 
