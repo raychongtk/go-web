@@ -19,7 +19,7 @@ func (s *Service) Login(ctx *gin.Context) {
 		ctx.JSON(http.StatusUnauthorized, &loginResponse{Result: false, ErrorCode: "LOGIN_FAILED"})
 		return
 	}
-	util.CreateSession(ctx)
+	util.CreateSession(ctx, req.Username)
 	ctx.JSON(http.StatusOK, &loginResponse{Result: authenticated})
 }
 

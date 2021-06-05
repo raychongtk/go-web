@@ -21,6 +21,6 @@ func ProvideRoutes(service *service.Service, store redis.Store) *gin.Engine {
 
 	ajaxGroup := r.Group("/ajax")
 	ajaxGroup.Use(service.VerifySession())
-	ajaxGroup.GET("/test", service.Test)
+	ajaxGroup.GET("/user", service.GetCurrentUser)
 	return r
 }

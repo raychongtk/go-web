@@ -15,6 +15,7 @@ var (
 type UserRepository interface {
 	Authenticate(username string, password string) (bool, error)
 	CreateAccount(username string, password string, firstName string, lastName string) (bool, error)
+	GetAccount(username string) (*AppUser, error)
 }
 
 type PgUserRepository struct {
@@ -23,6 +24,14 @@ type PgUserRepository struct {
 
 func NewRepository(db gorm.DB) UserRepository {
 	return &PgUserRepository{&db}
+}
+
+func (m *PgUserRepository) GetAccount(username string) (*AppUser, error) {
+	user, err := m.find(username)
+	if err != nil {
+		return nil, err
+	}
+	return user, nil
 }
 
 func (m *PgUserRepository) Authenticate(username string, password string) (bool, error) {
