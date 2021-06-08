@@ -5,4 +5,4 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_PASSWORD=password # for demo purpose DO NOT LEAVE YOUR PLAINTEXT PASSWORD HERE
+      - POSTGRES_PASSWORD
